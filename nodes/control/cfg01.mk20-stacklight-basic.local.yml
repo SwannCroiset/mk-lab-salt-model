@@ -18,9 +18,12 @@ classes:
 parameters:
   _param:
     salt_master_environment_repository: "https://github.com/tcpcloud"
+    my_salt_master_environment_repository: "https://github.com/SwannCroiset"
+    my_salt_master_environment_revision: stacklight
     salt_master_environment_revision: master
-    reclass_data_repository: "git@github.com:Mirantis/mk-lab-salt-model.git"
-    reclass_data_revision: master
+    #reclass_data_repository: "git@github.com:Mirantis/mk-lab-salt-model.git"
+    reclass_data_repository: "git@github.com:SwannCroiset/mk-lab-salt-model.git"
+    reclass_data_revision: mirantis_repo
     reclass_config_master: 192.168.10.100
     single_address: 172.16.10.100
     salt_master_host: 127.0.0.1
@@ -30,3 +33,52 @@ parameters:
     system:
       name: cfg01
       domain: mk20-stacklight-basic.local
+  reclass:
+    storage:
+      data_source:
+        engine: local
+  salt:
+    master:
+      environment:
+        dev:
+          formula:
+            linux:
+              source: git
+              address: '${_param:my_salt_master_environment_repository}/salt-formula-linux.git'
+              revision: ${_param:my_salt_master_environment_revision}
+            collectd:
+              source: git
+              address: '${_param:my_salt_master_environment_repository}/salt-formula-collectd.git'
+              revision: ${_param:my_salt_master_environment_revision}
+            heka:
+              source: git
+              address: '${_param:my_salt_master_environment_repository}/salt-formula-heka.git'
+              revision: ${_param:my_salt_master_environment_revision}
+  #          elasticsearch:
+  #            source: git
+  #            address: '${_param:salt_master_environment_repository}/salt-formula-elasticsearch.git'
+  #            revision: ${_param:salt_master_environment_revision}
+  #          grafana:
+  #            source: git
+  #            address: '${_param:salt_master_environment_repository}/salt-formula-grafana.git'
+  #            revision: ${_param:salt_master_environment_revision}
+  #          influxdb:
+  #            source: git
+  #            address: '${_param:salt_master_environment_repository}/salt-formula-influxdb.git'
+  #            revision: ${_param:salt_master_environment_revision}
+  #          java:
+  #            source: git
+  #            address: '${_param:salt_master_environment_repository}/salt-formula-java.git'
+  #            revision: ${_param:salt_master_environment_revision}
+  #          kibana:
+  #            source: git
+  #            address: '${_param:salt_master_environment_repository}/salt-formula-kibana.git'
+  #            revision: ${_param:salt_master_environment_revision}
+  #          reclass:
+  #            source: git
+  #            address: '${_param:my_salt_master_environment_repository}/salt-formula-reclass.git'
+  #            revision: ${_param:my_salt_master_environment_revision}
+  #          salt:
+  #            source: git
+  #            address: '${_param:my_salt_master_environment_repository}/salt-formula-salt.git'
+  #            revision: ${_param:my_salt_master_environment_revision}
