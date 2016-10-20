@@ -1,0 +1,6 @@
+applications:
+  - nagios
+classes:
+- service.nagios.server.single
+parameters:
+  _param: {}
