@@ -1,0 +1,9 @@
+applications:
+  - nagios
+classes:
+- service.nagios.server.single
+parameters:
+  _param: {}
+  nagios:
+    server:
+      enabled: true

@@ -33,6 +33,7 @@ parameters:
           address: 172.16.10.107
           names:
           - mon
+          - nagios
           - mon.mk20-stacklight-basic.local
           - mon01
           - mon01.mk20-stacklight-basic.local
