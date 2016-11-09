@@ -85,6 +85,12 @@ parameters:
     influxdb_user: lma
     influxdb_password: lmapass
     aggregator_port: 5565
+    nagios_host: mon
+    nagios_status_port: 8001
+    nagios_username: nagiosadmin
+    nagios_password: secret
+    nagios_notification_smtp_server: 127.0.0.1
+    nagios_notification_from: nagios@localhost
     linux_timezone: UTC
   linux:
     system:

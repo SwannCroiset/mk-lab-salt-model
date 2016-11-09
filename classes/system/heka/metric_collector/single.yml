@@ -10,3 +10,7 @@ parameters:
       influxdb_password: ${_param:influxdb_password}
       aggregator_host: ${_param:heka_aggregator_host}
       aggregator_port: ${_param:aggregator_port}
+      nagios_host: ${_param:nagios_host}
+      nagios_username: ${_param:nagios_username}
+      nagios_password: ${_param:nagios_password}
+      nagios_port: ${_param:nagios_status_port}
